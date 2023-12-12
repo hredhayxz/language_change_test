@@ -1,10 +1,11 @@
-import 'dart:ui';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:language_change_test/app_constants.dart';
 import 'package:language_change_test/models/language_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LocalizationController extends GetxController implements GetxService {
+class LocalizationController extends GetxController {
   final SharedPreferences sharedPreferences;
 
   LocalizationController({required this.sharedPreferences}) {
