@@ -4,14 +4,9 @@ import 'package:language_change_test/app_constants.dart';
 import 'package:language_change_test/controller/language_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   void _saveLanguage(String languageCode) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString('language', languageCode);
@@ -21,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('title'),
+        title: Text('title'.tr),
         centerTitle: true,
       ),
       body: SafeArea(child: Center(
@@ -30,9 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('welcome'),
-              Text('cart'),
-              Text('select'),
+              Text('welcome'.tr),
+              Text('cart'.tr),
+              Text('select'.tr),
               SizedBox(
                 height: 50,
               ),
@@ -42,9 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     AppConstants.languages[0].languageCode,
                     AppConstants.languages[0].countryCode,
                   ));
-                  localizationController.setSelectedIndex(0 );
+                  localizationController.setSelectedIndex(0);
                   _saveLanguage('en');
-                  setState(() {});
+                  //setState(() {});
                 },
                 child: Text('English'),
               ),
@@ -56,7 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ));
                   localizationController.setSelectedIndex(1);
                   _saveLanguage('ar');
-                  setState(() {});
                 },
                 child: Text('Arabic'),
               ),
@@ -68,7 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ));
                   localizationController.setSelectedIndex(2);
                   _saveLanguage('tr');
-                  setState(() {});
                 },
                 child: Text('Turkey'),
               ),
